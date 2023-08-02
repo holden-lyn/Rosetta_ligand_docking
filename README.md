@@ -7,7 +7,7 @@ Tutorial on Rosetta_ligand_docking, modified from official rosetta documentation
 ## 运行Rosetta应用
 ## 筛选
 
-
+## 参考借鉴，推荐阅读 
 1. zhihu.com 张自信 https://zhuanlan.zhihu.com/p/621751210 
 2. Rosetta official documents: 
 https://rosettacommons.org/demos/latest/tutorials/ligand_docking/ligand_docking_tutorial
