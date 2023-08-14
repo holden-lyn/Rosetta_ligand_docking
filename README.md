@@ -21,7 +21,8 @@ Rosetta是一款功能强大的蛋白质设计软件，它在蛋白质突变稳�
  
  
 ### 2.1. 蛋白质文件准备 
-将蛋白质结构松弛。如果蛋白质结构的侧链是来自预测模型（而不是湿实验获得的模型），应该在松弛时去掉选项 ``-relax:coord_constrain_sidechains``。 
+将蛋白质结构松弛。如果蛋白质结构的侧链是来自预测模型（而不是湿实验获得的模型），应该在松弛时去掉选项 
+``-relax:coord_constrain_sidechains``。 
  
 ```
 /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/relax.mpi.linuxgccrelease -ignore_unrecognized_res -ignore_zero_occupancy false -use_input_sc -flip_HNQ -no_optH false -relax:constrain_relax_to_start_coords -relax:coord_constrain_sidechains -relax:ramp_constraints false -s pgmB.pdb
