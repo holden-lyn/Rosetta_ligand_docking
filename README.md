@@ -1,5 +1,10 @@
-# Rosetta_ligand_docking
-Tutorial on Rosetta_ligand_docking, modified from official rosetta documentations, for use on our server. 以知乎高质量流程为框架，官方文件了解细节，梳理的流程，意图供公司里任何想在服务器上调用rosetta ligand docking的朋友 
+# Rosetta_ligand_docking 
+Rosetta是一款功能强大的蛋白质设计软件，它在蛋白质突变稳定性预测、分子对接等方面具有稳定的表现。Rosetta功能的调用需要一点命令行操作基础。
+
+Tutorial on Rosetta_ligand_docking, modified from official rosetta documentations, for use on our server. 以知乎高质量流程为框架，官方文件了解细节，原英文文献指明适用范围，进行流程梳理，意图供公司里任何想在服务器上调用rosetta ligand docking的朋友 
+
+
+
 
 # Rosetta ligand docking 的应用 
 ## 蛋白质文件准备 
@@ -7,8 +12,10 @@ Tutorial on Rosetta_ligand_docking, modified from official rosetta documentation
 ## 运行Rosetta应用
 ## 筛选
 
-## 参考借鉴，推荐阅读 
-1. zhihu.com 张自信 https://zhuanlan.zhihu.com/p/621751210 
-2. Rosetta official documents: 
+# 参考借鉴，推荐阅读 
+1. zhihu.com 张自信 https://zhuanlan.zhihu.com/p/621751210
+2. 文章 "Rosetta and the Design of Ligand Binding Sites". 
+3. Rosetta official documents: 
 https://rosettacommons.org/demos/latest/tutorials/ligand_docking/ligand_docking_tutorial
 https://www.rosettacommons.org/docs/latest/application_documentation/docking/ligand-dock
+
