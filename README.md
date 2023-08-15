@@ -7,10 +7,12 @@ Rosetta是一款功能强大的蛋白质设计软件，它在蛋白质突变稳�
 ### 运行前准备 
 （1）服务器账号。运行Rosetta应用需要在Unix操作系统上进行，推荐在集成（clustered）计算机上运行，调用RosettaLigand还是需要一些算力的。如果条件不允许，本地的计算机其实也不是不行。 
 
-（2）Rosetta，附当前（2023-8-14）时Rosetta在服务器上的路径： 
+（2）Rosetta。附当前（2023-8-14）时Rosetta在服务器上的路径： 
 ```
 /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle
-``` 
+```
+ 如果你看见这篇文献的时候服务器上都没有Rosetta，来瞧一瞧看一看:``https://github.com/holden-lyn/Rosetta_ddg_monomer_tutorial/blob/main/README.md`` 
+ 
 （3）小分子处理程序。和原教程一样，推荐OpenBabel，可以通过图形界面（类似平时操作的电脑的界面），也可以通过命令行操作，给小分子加氢，如果不给小分子加氢，会影响RosettaLigand的表现。 
 
 （4）配体构象生成程序。和原教程一样推荐BCL，文献中的BCL是本地的BCL，在本次实验中遇到过BCL服务器不可用的情况，所以有考虑之后把BCL给本地化。这里还提供手动生成构象的方法，但第一是生成的构象集不会和BCL算法生成的一样严谨，也容易遇到构象集文件格式出现问题等不容易处理的状况。 
