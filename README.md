@@ -155,6 +155,7 @@ start
 </ROSETTASCRIPTS>
 ```
 还是要知道基本的设计理念： 
+ 
 “建议的方案基于使用RosettaScripts框架的RosettaLigand对接。它将优化配体在结合口袋中的位置（low_res_dock），重新设计周围的侧链（design_interface），并在设计的环境中优化相互作用（high_res_dock）。为了避免虚假突变，在每个位置（favor_native）给输入残基一个轻微的能量奖励。” 
  
   
