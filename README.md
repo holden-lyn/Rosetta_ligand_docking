@@ -16,7 +16,7 @@ Rosetta是一款功能强大的蛋白质设计软件，它在蛋白质突变稳�
 https://github.com/holden-lyn/Rosetta_ddg_monomer_tutorial/blob/main/README.md
 ``` 
  
-（3）小分子处理程序。和原教程一样，推荐OpenBabel，可以通过图形界面（类似平时操作的电脑的界面），也可以通过命令行操作，给小分子加氢，如果不给小分子加氢，会影响RosettaLigand的表现。 
+（3）小分子处理程序。可以通过图形界面（类似平时操作的电脑的界面，软件：OpenBabel，Avogadro），也可以通过命令行操作（OpenBabel），给小分子加氢，如果不给小分子加氢，会影响RosettaLigand的表现。 
 
 （4）配体构象生成程序。和原教程一样推荐BCL，文献中的BCL是本地的BCL，在本次实验中遇到过BCL服务器不可用的情况，所以有考虑之后把BCL给本地化。这里还提供手动生成构象的方法，但第一是生成的构象集不会和BCL算法生成的一样严谨，也容易遇到构象集文件格式出现问题等不容易处理的状况。 
 
@@ -25,7 +25,7 @@ https://github.com/holden-lyn/Rosetta_ddg_monomer_tutorial/blob/main/README.md
 （6）准备工作文件夹可能会是一个好习惯，用来装运行之后步骤运行RosettaLigand需要准备的一切文件。这个流程生成的文件很多，我不会希望这些文件混在某个文件夹原有的一大堆文件里头的。 
  
  
-### 2.1. 蛋白质文件准备 
+### 2.1 蛋白质文件准备 
 将蛋白质结构松弛。如果蛋白质结构的侧链是来自预测模型（而不是湿实验获得的模型），应该在松弛时去掉选项 
 
 ``-relax:coord_constrain_sidechains``。 
@@ -41,9 +41,14 @@ mv pgmB_0001.pdb pgmB_relaxed.pdb
 蛋白质文件准备就绪 
  
 ### 2.2. 配体准备 
+#### 2.2.1 为小分子按照pH值编辑氢原子 
+从pubchem上下载小分子结构文件.sdf，这里使用的是3D模型，``https://pubchem.ncbi.nlm.nih.gov/compound/90008``。 
+打开Avogadro，可以直接将小分子结构文件拖入窗口，也可以点"File"-->"New"从路径中选择打开的文件。文件在窗口中显示之后，从"build"中选择"add Hydrogen for pH"，在弹出的小窗口中输入pH值，点击"OK"确定，完成加氢原子。可以用文本编辑器，如windows自带记事本、VScode等分别打开加氢前后的小分子结构.sdf文件进行比对确认。 
+#### 2.2.2 BCL服务器生成小分子构象库 
  
-### 2.3. 运行Rosetta应用 
-### 2.4. 筛选 
+ 
+### 2.3 运行Rosetta应用 
+### 2.4 筛选 
  
 # 参考借鉴，推荐阅读 
 1. zhihu.com 张自信 https://zhuanlan.zhihu.com/p/621751210
