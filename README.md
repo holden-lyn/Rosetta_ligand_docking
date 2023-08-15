@@ -56,10 +56,12 @@ http://carbon.structbio.vanderbilt.edu/index.php/bclconf
 （3）将BCL生成的结果重命名为D-Allulose_conf_test.sdf，上传到服务器里的工作文件夹，用Rosetta自带的功能转换成.params格式（此处直接引用：params为Rosetta可读取的、用于存储小分子形状及化学性质信息的专有文件格式）。输入命令转换文件： 
 ```
 /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/scripts/python/public/molfile_to_params.py -n LIG -p D-Allulose --conformers-in-one-file D-Allulose_conf_test.sdf
-```
-
+``` 
+“其中，-n 指定在 pdb 和 params 文件中用来表示配体名称的 3 字符缩写，这里命名为 LIG 即配体 ligand 的缩写（需要注意的是，这里不能沿用 GLY 或者其他氨基酸、金属原子的缩写，否则生成的 params 文件会在后续突变结构时，与 Rosetta 自带的氨基酸或部分金属原子的 params 文件发生冲突）；-p 指定生成文件的命名。” （知乎：张自信） 
+ 
 输入``ls``，可以看到生成了三个文件"D-Allulose", "D-Allulose_conformers.pdb", "D-Allulose.params"，三个文件依次的作用是： 
-D-Allulose: 标注小分子的对接的位置，在之后的步骤需要在模型可视化软件里手动进行对接。
+D-Allulose: 标注小分子的对接的位置，所以在之后的步骤需要在模型可视化软件里手动进行对接。
+D-Allulose_conformers.pdb: 
  
  
 ### 2.3 运行Rosetta应用 
