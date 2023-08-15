@@ -74,7 +74,7 @@ http://carbon.structbio.vanderbilt.edu/index.php/bclconf
 
 **UCSF Chimera** 是本次教程中使用的，将小分子放进蛋白质口袋的软件。确认蛋白质的口袋位置需要一些先验知识，这次教程中情况相对简单。在https://www.uniprot.org/uniprotkb/P77366/entry 上可以看到蛋白质的活性位点是第11位的氨基酸，在Chimera中打开蛋白质.pdb结构文件，可以在Chimera中“选择Select”这个氨基酸达到高亮它的效果，同时也能发现这个蛋白质的口袋相当明显，活性位点所在的位置也与口袋的位置相吻合。 
 
-##### Chimera 基本操作 
+#### Chimera 基本操作 
 鼠标左键按住拖动：拖动模型结构旋转
 鼠标右键按住上下移动：模型结构
 鼠标中键按住移动：移动模型。 
