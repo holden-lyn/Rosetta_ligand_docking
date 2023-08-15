@@ -45,7 +45,8 @@ mv AF-P77366-F1-model_v4_0001.pdb pgmB_relaxed.pdb
 ### 2.2. 配体准备 
 #### 2.2.1 为小分子按照pH值编辑氢原子 
 （1）从pubchem上下载小分子结构文件.sdf，这里使用的是**3D模型**，``https://pubchem.ncbi.nlm.nih.gov/compound/90008``。 
-（2）打开Avogadro，可以直接将小分子结构文件拖入窗口，也可以点"File"-->"New"从路径中选择打开的文件。文件在窗口中显示之后，从"build"中选择"add Hydrogen for pH"，在弹出的小窗口中输入pH值，点击"OK"确定，完成加氢原子。可以用文本编辑器，如windows自带记事本、VScode等分别打开加氢前后的小分子结构.sdf文件进行比对确认。 
+（2）打开Avogadro，可以直接将小分子结构文件拖入窗口，也可以点"File"-->"New"从路径中选择打开的文件。文件在窗口中显示之后，从"build"中选择"add Hydrogen for pH"，在弹出的小窗口中输入pH值，点击"OK"确定，完成加氢原子。可以用文本编辑器，如windows自带记事本、VScode等分别打开加氢前后的小分子结构.sdf文件进行比对确认。  
+<***记得插入图片说明***> 
 #### 2.2.2 BCL服务器生成小分子构象库，用Rosetta功能转换成可供Rosetta读取的.params格式 
 （1）进入Meiler Lab的BCL::Conf网络服务器 
 ```
@@ -60,14 +61,23 @@ http://carbon.structbio.vanderbilt.edu/index.php/bclconf
 “其中，-n 指定在 pdb 和 params 文件中用来表示配体名称的 3 字符缩写，这里命名为 LIG 即配体 ligand 的缩写（需要注意的是，这里不能沿用 GLY 或者其他氨基酸、金属原子的缩写，否则生成的 params 文件会在后续突变结构时，与 Rosetta 自带的氨基酸或部分金属原子的 params 文件发生冲突）；-p 指定生成文件的命名。” （知乎：张自信） 
  
 输入``ls``，可以看到生成了三个文件"D-Allulose", "D-Allulose_conformers.pdb", "D-Allulose.params"，三个文件依次的作用是： 
-D-Allulose: 标注小分子的对接的位置，所以在之后的步骤需要在模型可视化软件里手动进行对接。
-D-Allulose_conformers.pdb: 
+- D-Allulose: 标注小分子的对接的位置，所以在之后的步骤需要在模型可视化软件里手动进行对接。 
+- D-Allulose_conformers.pdb: 这是帮助params文件指定小分子构象库的文件，包含了之前生成的所有小分子构象。如果需要移动文件，应该和对应的.params文件一同移动。 
+- D-Allulose.params: Rosetta运行RosettaLigand所能读取的文件格式。和构象库文件绑定，运行程序的时候需要和构象库文件处在同一个文件夹下。
+
+<***记得插入图片，展示文件生成时候的输入日志，还有结构可视化文件里选定的一个配体构象，以及构象库，帮助理解***>
  
+#### 2.2.3 用Chimera（或者其他结构可视化软件）将配体移动到蛋白质口袋中 
+“Rosetta要求原子名称与molfile_to_params.py步骤中生成的名称匹配。即使具有正确放置了配体的起始结构，也应该将molfile_to_params.py生成的结构对齐到口袋中，以便原子命名正确。 
+ 
+在进行蛋白设计时会包含蛋白与配体的多次对接，因此需要先指定配体每个原子的起始坐标，这样配体才能在指定的对接盒子中移动和扭转，与结合口袋发生相互作用。” 
+
+**UCSF Chimera** 是本次教程中使用的，将小分子放进蛋白质口袋的软件。确认蛋白质的口袋位置需要一些先验知识，这次教程中情况相对简单。在https://www.uniprot.org/uniprotkb/P77366/entry上可以看到蛋白质的活性位点是第11位的氨基酸，可以在Chimera中“选择Select”这个氨基酸达到高亮它的效果，同时在Chimera中打开蛋白质.pdb结构文件就能发现这个蛋白质的口袋相当明显，也符合活性位点所在的位置。
  
 ### 2.3 运行Rosetta应用 
 ### 2.4 筛选 
  
-# 参考借鉴，推荐阅读 
+## 3. 参考借鉴，推荐阅读 
 1. zhihu.com 张自信 https://zhuanlan.zhihu.com/p/621751210
 2. 文章 "Rosetta and the Design of Ligand Binding Sites". 
 3. Rosetta official documents: 
