@@ -18,7 +18,7 @@ https://github.com/holden-lyn/Rosetta_ddg_monomer_tutorial/blob/main/README.md
  
 （3）小分子处理程序。可以通过图形界面（类似平时操作的电脑的界面，软件：OpenBabel，Avogadro），也可以通过命令行操作（OpenBabel），给小分子加氢，如果不给小分子加氢，会影响RosettaLigand的表现。 
 
-（4）配体构象生成程序。和原教程一样推荐BCL，文献中的BCL是本地的BCL，在本次实验中遇到过BCL服务器不可用的情况，所以有考虑之后把BCL给本地化。这里还提供手动生成构象的方法，但第一是生成的构象集不会和BCL算法生成的一样严谨，也容易遇到构象集文件格式出现问题等不容易处理的状况。 
+（4）配体构象生成程序。和原教程一样推荐BCL，文献中的BCL是本地的BCL，在本次实验中遇到过BCL服务器不可用的情况，所以有考虑之后把BCL给本地化。这里还提供手动生成构象的方法，但是生成的构象集不会和BCL算法生成的一样严谨，也容易遇到构象集文件格式出现问题等不容易处理的状况。 
 
 （5）蛋白质(.pdb)和小分子(.sdf)结构文件，此处以 pgmB 蛋白（结构地址 ``https://www.uniprot.org/uniprotkb/P77366/entry``）和小分子 D-Allulose (551-68-8) （结构地址 ``https://pubchem.ncbi.nlm.nih.gov/compound/90008``）对接为例。 
  
