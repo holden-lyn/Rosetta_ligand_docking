@@ -103,8 +103,62 @@ start
 其实，笔者目前了解到，通过计算机模拟的对接结构，是比较难直接进行亲和力（Km）的预测的，但是通过RosettaLigand输出评分较高的对接结构仍有意义。本流程的其他适用场合，会在文末讨论。 
  
 #### 2.3.2 设计.xml文件（Rosetta脚本，RosettaScript） 
+编辑调用RosettaScript需要的脚本文件（.xml格式），我理解的Rosetta脚本是可以将其他多个Rosetta功能一起调用起来的一个功能，具有较强的可编辑性，这里直接复制原文中的设计：
+```
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <ScoreFunction name="ligand_soft_rep" weights="ligand_soft_rep.wts"/>
+        <ScoreFunction name="hard_rep" weights="ligandprime.wts"/>
+    </SCOREFXNS>
+    <TASKOPERATIONS>
+        <DetectProteinLigandInterface name="design_interface" cut1="6.0" cut2="8.0" cut3="10.0" cut4="12.0" design="1" resfile="DEBP.resfile"/>
+    </TASKOPERATIONS>
+    <LIGAND_AREAS>
+        <LigandArea name="docking_sidechain" chain="X" cutoff="6.0" add_nbr_radius="true" all_atom_mode="true" minimize_ligand="10"/>
+        <LigandArea name="final_sidechain" chain="X" cutoff="6.0" add_nbr_radius="true" all_atom_mode="true"/>
+        <LigandArea name="final_backbone" chain="X" cutoff="7.0" add_nbr_radius="false" all_atom_mode="true" Calpha_restraints="0.3"/>
+    </LIGAND_AREAS>
+    <INTERFACE_BUILDERS>
+        <InterfaceBuilder name="side_chain_for_docking" ligand_areas="docking_sidechain"/>
+        <InterfaceBuilder name="side_chain_for_final" ligand_areas="final_sidechain"/>
+        <InterfaceBuilder name="backbone" ligand_areas="final_backbone" extension_window="3"/>
+    </INTERFACE_BUILDERS> 
+    <MOVEMAP_BUILDERS>
+        <MoveMapBuilder name="docking" sc_interface="side_chain_for_docking" minimize_water="true"/>
+        <MoveMapBuilder name="final" sc_interface="side_chain_for_final" bb_interface="backbone" minimize_water="true"/>
+    </MOVEMAP_BUILDERS>
+    <SCORINGGRIDS ligand_chain="X" width="15">
+        <ClassicGrid grid_name="vdw" weight="1.0"/>
+    </SCORINGGRIDS>
+    <MOVERS>
+        <FavorNativeResidue name="favor_native" bonus="1.00"/>
+        <Transform name="transform" chain="X" box_size="3.0" move_distance="0.1" angle="5" cycles="500" repeats="1" temperature="5" rmsd="4.0"/>
+        <HighResDocker name="high_res_docker" cycles="6" repack_every_Nth="3" scorefxn="ligand_soft_rep" movemap_builder="docking"/>
+        <PackRotamersMover name="design_interface" scorefxn="hard_rep" task_operations="design_interface"/>
+        <FinalMinimizer name="final" scorefxn="hard_rep" movemap_builder="final"/>
+        <InterfaceScoreCalculator name="add_scores" chains="X" scorefxn="hard_rep"/>
+        <ParsedProtocol name="low_res_dock">
+            <Add mover_name="transform"/>
+        </ParsedProtocol>
+        <ParsedProtocol name="high_res_dock">
+            <Add mover_name="high_res_docker"/>
+            <Add mover_name="final"/>
+        </ParsedProtocol>
+    </MOVERS>
+    <PROTOCOLS>
+        <Add mover_name="favor_native"/>
+        <Add mover_name="low_res_dock"/>
+        <Add mover_name="design_interface"/>
+        <Add mover_name="high_res_dock"/>
+        <Add mover_name="add_scores"/>
+    </PROTOCOLS>
+</ROSETTASCRIPTS>
+```
+还是要知道基本的设计理念： 
+“建议的方案基于使用RosettaScripts框架的RosettaLigand对接。它将优化配体在结合口袋中的位置（low_res_dock），重新设计周围的侧链（design_interface），并在设计的环境中优化相互作用（high_res_dock）。为了避免虚假突变，在每个位置（favor_native）给输入残基一个轻微的能量奖励。” 
+ 
   
-### 2.4 筛选 
+### 2.4 筛选 （做过之后编辑）
  
 ## 3. 参考借鉴，推荐阅读 
 1. zhihu.com 张自信 https://zhuanlan.zhihu.com/p/621751210
