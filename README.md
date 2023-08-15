@@ -45,6 +45,11 @@ mv pgmB_0001.pdb pgmB_relaxed.pdb
 从pubchem上下载小分子结构文件.sdf，这里使用的是3D模型，``https://pubchem.ncbi.nlm.nih.gov/compound/90008``。 
 打开Avogadro，可以直接将小分子结构文件拖入窗口，也可以点"File"-->"New"从路径中选择打开的文件。文件在窗口中显示之后，从"build"中选择"add Hydrogen for pH"，在弹出的小窗口中输入pH值，点击"OK"确定，完成加氢原子。可以用文本编辑器，如windows自带记事本、VScode等分别打开加氢前后的小分子结构.sdf文件进行比对确认。 
 #### 2.2.2 BCL服务器生成小分子构象库 
+进入Meiler Lab的BCL::Conf网络服务器 
+```
+http://carbon.structbio.vanderbilt.edu/index.php/bclconf
+```
+
  
  
 ### 2.3 运行Rosetta应用 
