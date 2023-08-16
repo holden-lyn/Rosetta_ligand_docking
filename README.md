@@ -231,7 +231,7 @@ $ROSETTA3/bin/rosetta_scripts.mpi.linuxgccrelease -ex1 -ex2 -linmem_ig 10 -resto
  
 ## 3. 参考借鉴，推荐阅读 
 1. zhihu.com 张自信 https://zhuanlan.zhihu.com/p/621751210
-2. 文章 "Rosetta and the Design of Ligand Binding Sites". 
+2. Moretti, R., Bender, B. J., Allison, B., & Meiler, J. (2016). Rosetta and the Design of Ligand Binding Sites. Methods in molecular biology (Clifton, N.J.), 1414, 47–62. https://doi.org/10.1007/978-1-4939-3569-7_4  
 3. Rosetta official documents: 
 https://rosettacommons.org/demos/latest/tutorials/ligand_docking/ligand_docking_tutorial
 https://www.rosettacommons.org/docs/latest/application_documentation/docking/ligand-dock
