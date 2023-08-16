@@ -51,7 +51,11 @@ mv AF-P77366-F1-model_v4_0001.pdb pgmB_relaxed.pdb
 #### 2.2.1 为小分子按照pH值编辑氢原子 
 （1）从pubchem上下载小分子结构文件.sdf，这里使用的是**3D模型**，``https://pubchem.ncbi.nlm.nih.gov/compound/90008``。 
 （2）打开Avogadro，可以直接将小分子结构文件拖入窗口，也可以点"File"-->"New"从路径中选择打开的文件。文件在窗口中显示之后，从"build"中选择"add Hydrogen for pH"，在弹出的小窗口中输入pH值，点击"OK"确定，完成加氢原子。可以用文本编辑器，如windows自带记事本、VScode等分别打开加氢前后的小分子结构.sdf文件进行比对确认。  
-<***记得插入图片说明***> 
+
+<p align="center">
+  <img  src="RosettaLigand_picture/Avogadro_add_H_for_pH.png.png" width = "400">
+</p>
+  
 #### 2.2.2 BCL服务器生成小分子构象库，用Rosetta功能转换成可供Rosetta读取的.params格式 
 （1）进入Meiler Lab的BCL::Conf网络服务器 
 ```
