@@ -28,7 +28,8 @@ https://github.com/holden-lyn/Rosetta_ddg_monomer_tutorial/blob/main/README.md
 ### 2.1 蛋白质文件准备 
 创建一个工作文件夹 ``mkdir <workdir>`` 进入``cd <workdir>`` 
 本教程在服务器上的工作路径为 /mnt/4T_sdb/LHL/test/RosettaLigand_tutorial 
-把蛋白质文件用xftp上传到工作文件夹 /mnt/4T_sdb/LHL/test/RosettaLigand_tutorial 准备将蛋白质结构松弛。如果蛋白质结构的侧链是来自预测模型（而不是湿实验获得的模型），应该在松弛时去掉选项 
+把蛋白质文件用xftp上传到工作文件夹 /mnt/4T_sdb/LHL/test/RosettaLigand_tutorial 
+准备将蛋白质结构松弛。如果蛋白质结构的侧链是来自预测模型（而不是湿实验获得的模型），应该在松弛时去掉选项 
 
 ``-relax:coord_constrain_sidechains``。 
  
