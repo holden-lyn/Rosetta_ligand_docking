@@ -16,11 +16,11 @@ Rosetta是一款功能强大的蛋白质设计软件，它在蛋白质突变稳�
 https://github.com/holden-lyn/Rosetta_ddg_monomer_tutorial/blob/main/README.md
 ``` 
  
-（3）小分子处理程序。可以通过图形界面（类似平时操作的电脑的界面，软件：OpenBabel，Avogadro），也可以通过命令行操作（OpenBabel），给小分子加氢，如果不给小分子加氢，会影响RosettaLigand的表现。 
+（3）小分子处理程序。本教程用Avogadro，也可以通过图形界面（类似平时操作的电脑的界面，软件：OpenBabel，Avogadro），也可以通过命令行操作（OpenBabel），给小分子加氢，如果不给小分子加氢，会影响RosettaLigand的表现。 
 
-（4）配体构象生成程序。和原教程一样推荐BCL，文献中的BCL是本地的BCL，在本次实验中遇到过BCL服务器不可用的情况，所以有考虑之后把BCL给本地化。这里还提供手动生成构象的方法，但是生成的构象集不会和BCL算法生成的一样严谨，也容易遇到构象集文件格式出现问题等不容易处理的状况。 
+（4）配体构象生成程序。和本教程参考的原教程一样推荐BCL，文献中的BCL是本地的BCL，在本次实验中遇到过BCL服务器不可用的情况，所以有考虑之后把BCL给本地化。本教程还提供手动生成构象的方法，但是生成的构象集不会和BCL算法生成的一样严谨，也容易遇到构象集文件格式出现问题等不容易处理的状况。 
 
-（5）蛋白质(.pdb)和小分子(.sdf)结构文件，此处以 pgmB 蛋白（结构地址 ``https://www.uniprot.org/uniprotkb/P77366/entry``）和小分子 D-Allulose (551-68-8) （结构地址 ``https://pubchem.ncbi.nlm.nih.gov/compound/90008``）对接为例。 
+（5）蛋白质(.pdb)和小分子(.sdf)结构文件，此处以 pgmB 蛋白（结构下载地址 ``https://www.uniprot.org/uniprotkb/P77366/entry``）和小分子 D-Allulose (551-68-8) （结构下载地址 ``https://pubchem.ncbi.nlm.nih.gov/compound/90008``）对接为例。 
  
 （6）准备工作文件夹可能会是一个好习惯，用来装运行之后步骤运行RosettaLigand需要准备的一切文件。这个流程生成的文件很多，我不会希望这些文件混在某个文件夹原有的一大堆文件里头的。 
  
@@ -40,7 +40,7 @@ https://github.com/holden-lyn/Rosetta_ddg_monomer_tutorial/blob/main/README.md
 /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/relax.mpi.linuxgccrelease -ignore_unrecognized_res -ignore_zero_occupancy false -use_input_sc -flip_HNQ -no_optH false -relax:constrain_relax_to_start_coords -relax:coord_constrain_sidechains -relax:ramp_constraints false -s AF-P77366-F1-model_v4.pdb
 ``` 
  
-运行结束之后，获得文件"AF-P77366-F1-model_v4.pdb_0001.pdb"（这里我选用了一个AlphaFold的预测模型）,重命名输出结构为"pgmB_relaxed.pdb" 
+运行结束之后，获得文件"AF-P77366-F1-model_v4.pdb_0001.pdb"（这里我选用了一个AlphaFold的预测模型），重命名输出结构为"pgmB_relaxed.pdb" 
 ``` 
 mv AF-P77366-F1-model_v4_0001.pdb pgmB_relaxed.pdb
 ```
