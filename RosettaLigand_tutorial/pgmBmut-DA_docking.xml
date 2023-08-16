@@ -1,0 +1,48 @@
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <ScoreFunction name="ligand_soft_rep" weights="ligand_soft_rep.wts"/>
+        <ScoreFunction name="hard_rep" weights="ligandprime.wts"/>
+    </SCOREFXNS>
+    <TASKOPERATIONS>
+        <DetectProteinLigandInterface name="design_interface" cut1="6.0" cut2="8.0" cut3="10.0" cut4="12.0" design="1" resfile="pgmBmut.resfile"/>
+    </TASKOPERATIONS>
+    <LIGAND_AREAS>
+        <LigandArea name="docking_sidechain" chain="X" cutoff="6.0" add_nbr_radius="true" all_atom_mode="true" minimize_ligand="10"/>
+        <LigandArea name="final_sidechain" chain="X" cutoff="6.0" add_nbr_radius="true" all_atom_mode="true"/>
+        <LigandArea name="final_backbone" chain="X" cutoff="7.0" add_nbr_radius="false" all_atom_mode="true" Calpha_restraints="0.3"/>
+    </LIGAND_AREAS>
+    <INTERFACE_BUILDERS>
+        <InterfaceBuilder name="side_chain_for_docking" ligand_areas="docking_sidechain"/>
+        <InterfaceBuilder name="side_chain_for_final" ligand_areas="final_sidechain"/>
+        <InterfaceBuilder name="backbone" ligand_areas="final_backbone" extension_window="3"/>
+    </INTERFACE_BUILDERS> 
+    <MOVEMAP_BUILDERS>
+        <MoveMapBuilder name="docking" sc_interface="side_chain_for_docking" minimize_water="true"/>
+        <MoveMapBuilder name="final" sc_interface="side_chain_for_final" bb_interface="backbone" minimize_water="true"/>
+    </MOVEMAP_BUILDERS>
+    <SCORINGGRIDS ligand_chain="X" width="15">
+        <ClassicGrid grid_name="vdw" weight="1.0"/>
+    </SCORINGGRIDS>
+    <MOVERS>
+        <FavorNativeResidue name="favor_native" bonus="1.00"/>
+        <Transform name="transform" chain="X" box_size="3.0" move_distance="0.1" angle="5" cycles="500" repeats="1" temperature="5" rmsd="4.0"/>
+        <HighResDocker name="high_res_docker" cycles="6" repack_every_Nth="3" scorefxn="ligand_soft_rep" movemap_builder="docking"/>
+        <PackRotamersMover name="design_interface" scorefxn="hard_rep" task_operations="design_interface"/>
+        <FinalMinimizer name="final" scorefxn="hard_rep" movemap_builder="final"/>
+        <InterfaceScoreCalculator name="add_scores" chains="X" scorefxn="hard_rep"/>
+        <ParsedProtocol name="low_res_dock">
+            <Add mover_name="transform"/>
+        </ParsedProtocol>
+        <ParsedProtocol name="high_res_dock">
+            <Add mover_name="high_res_docker"/>
+            <Add mover_name="final"/>
+        </ParsedProtocol>
+    </MOVERS>
+    <PROTOCOLS>
+        <Add mover_name="favor_native"/>
+        <Add mover_name="low_res_dock"/>
+        <Add mover_name="design_interface"/>
+        <Add mover_name="high_res_dock"/>
+        <Add mover_name="add_scores"/>
+    </PROTOCOLS>
+</ROSETTASCRIPTS>

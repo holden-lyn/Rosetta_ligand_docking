@@ -1,0 +1,3 @@
+SEQUENCE: 
+SCORE: total_score coordinate_constraint dslf_fa13    fa_atr    fa_dun   fa_elec fa_intra_rep fa_intra_sol_xover4              fa_rep              fa_sol hbond_bb_sc hbond_lr_bb    hbond_sc hbond_sr_bb lk_ball_wtd       omega     p_aa_pp pro_close rama_prepro         ref yhh_planarity description 
+SCORE:    -583.397                36.539     0.000 -1255.273   243.323  -360.884        2.025              36.848             129.059             720.984     -35.434     -32.505     -20.624     -97.844     -33.770      35.648     -34.962     1.048     -12.032      94.450         0.010 AF-P77366-F1-model_v4_0001

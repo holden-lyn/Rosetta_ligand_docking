@@ -1,0 +1,570 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2021.16+release.8ee4f02
+[COMMIT_DATE]: 2021-04-20T20:57:38.289184
+[APPLICATION]: /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease
+[MODE]: Release
+[EXTRAS]: mpi (OpenMPI 4.0.3) 
+[OS]: GNU/Linux
+[COMPILER]: GCC version "9.4.0"
+[STDLIB]: libstdc++ version 20210601
+[START_OPTIONS]
+ -in:file:s="pgmB_relaxed.pdb D-Allulose.pdb" -in:file:extra_res_fa=D-Allulose.params -out:nstruct=10 -out:file:scorefile=result_pgmBmut-DA.sc -parser:protocol=pgmBmut-DA_docking.xml -packing:linmem_ig=10 -packing:ex1 -packing:ex2 -mistakes:restore_pre_talaris_2013_behavior
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(backtrace_string[abi:cxx11](int)+0x5a) [0x7fd0b981153a]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x103) [0x7fd0b984f603]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::onError(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0xba) [0x7fd0b484deca]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::locate_resid(core::pose::Pose const&, char, unsigned long, char, unsigned long) const+0x1c8) [0x7fd0b4852148]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::parse_body_line(core::pose::Pose const&, utility::vector1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::shared_ptr<core::pack::task::ResfileCommand>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<core::pack::task::ResfileCommand> > > > const&, unsigned long, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&)+0x5f9) [0x7fd0b4852a19]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::ResfileContents(core::pose::Pose const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::istream&)+0xc6d) [0x7fd0b48555cd]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, utility::vector1<bool, std::allocator<bool> > const&)+0x205) [0x7fd0b4856945]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7fd0b4857289]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfile::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x209) [0x7fd0b48d80c9]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfileAndObeyLengthEvents::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0xf1b) [0x7fd0b48e3e9b]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.7.so(protocols::enzdes::DetectProteinLigandInterface::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x861) [0x7fd0af36d591]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::modify_task(core::pose::Pose const&, std::shared_ptr<core::pack::task::PackerTask>) const+0x71) [0x7fd0b48634c1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::create_task_and_apply_taskoperations(core::pose::Pose const&, unsigned long) const+0x211) [0x7fd0b4863e01]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::setup(core::pose::Pose&)+0x60) [0x7fd0b63ffe50]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::apply(core::pose::Pose&)+0x3f) [0x7fd0b64043af]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_mover(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&)+0x268) [0x7fd0bab1e4e8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_step(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&, bool)+0x21) [0x7fd0bab1e9d1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::sequence_protocol(core::pose::Pose&, __gnu_cxx::__normal_iterator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const*, std::vector<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep, std::allocator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep> > >)+0x40) [0x7fd0bab1f0c0]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply(core::pose::Pose&)+0x1fe) [0x7fd0bab233fe]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::run_one_job(std::shared_ptr<protocols::moves::Mover>&, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, unsigned long&, unsigned long&, bool)+0x22b4) [0x7fd0ba64e754]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::go_main(std::shared_ptr<protocols::moves::Mover>)+0x238) [0x7fd0ba64fcc8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::FileSystemJobDistributor::go(std::shared_ptr<protocols::moves::Mover>)+0x57) [0x7fd0ba636b97]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4aa6) [0x5579ed08caa6]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x7fd0b9269083]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4dae) [0x5579ed08cdae]
+
+[END_BACKTRACE]
+
+[FILE]: src/core/pack/task/ResfileReader.cc
+[LINE]: 1577
+[START_MESSAGE]
+On line 3, the pose does not have residue with chain=X, PDBnum=13.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2021.16+release.8ee4f02
+[COMMIT_DATE]: 2021-04-20T20:57:38.289184
+[APPLICATION]: /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease
+[MODE]: Release
+[EXTRAS]: mpi (OpenMPI 4.0.3) 
+[OS]: GNU/Linux
+[COMPILER]: GCC version "9.4.0"
+[STDLIB]: libstdc++ version 20210601
+[START_OPTIONS]
+ -in:file:s="pgmB_relaxed.pdb D-Allulose.pdb" -in:file:extra_res_fa=D-Allulose.params -out:nstruct=10 -out:file:scorefile=result_pgmBmut-DA.sc -parser:protocol=pgmBmut-DA_docking.xml -packing:linmem_ig=10 -packing:ex1 -packing:ex2 -mistakes:restore_pre_talaris_2013_behavior
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(backtrace_string[abi:cxx11](int)+0x5a) [0x7fd0b981153a]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x103) [0x7fd0b984f603]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::onError(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0xba) [0x7fd0b484deca]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::locate_resid(core::pose::Pose const&, char, unsigned long, char, unsigned long) const+0x1c8) [0x7fd0b4852148]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::parse_body_line(core::pose::Pose const&, utility::vector1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::shared_ptr<core::pack::task::ResfileCommand>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<core::pack::task::ResfileCommand> > > > const&, unsigned long, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&)+0x5f9) [0x7fd0b4852a19]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::ResfileContents(core::pose::Pose const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::istream&)+0xc6d) [0x7fd0b48555cd]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, utility::vector1<bool, std::allocator<bool> > const&)+0x205) [0x7fd0b4856945]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7fd0b4857289]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfile::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x209) [0x7fd0b48d80c9]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfileAndObeyLengthEvents::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0xf1b) [0x7fd0b48e3e9b]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.7.so(protocols::enzdes::DetectProteinLigandInterface::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x861) [0x7fd0af36d591]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::modify_task(core::pose::Pose const&, std::shared_ptr<core::pack::task::PackerTask>) const+0x71) [0x7fd0b48634c1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::create_task_and_apply_taskoperations(core::pose::Pose const&, unsigned long) const+0x211) [0x7fd0b4863e01]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::setup(core::pose::Pose&)+0x60) [0x7fd0b63ffe50]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::apply(core::pose::Pose&)+0x3f) [0x7fd0b64043af]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_mover(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&)+0x268) [0x7fd0bab1e4e8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_step(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&, bool)+0x21) [0x7fd0bab1e9d1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::sequence_protocol(core::pose::Pose&, __gnu_cxx::__normal_iterator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const*, std::vector<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep, std::allocator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep> > >)+0x40) [0x7fd0bab1f0c0]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply(core::pose::Pose&)+0x1fe) [0x7fd0bab233fe]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::run_one_job(std::shared_ptr<protocols::moves::Mover>&, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, unsigned long&, unsigned long&, bool)+0x22b4) [0x7fd0ba64e754]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::go_main(std::shared_ptr<protocols::moves::Mover>)+0x238) [0x7fd0ba64fcc8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::FileSystemJobDistributor::go(std::shared_ptr<protocols::moves::Mover>)+0x57) [0x7fd0ba636b97]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4aa6) [0x5579ed08caa6]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x7fd0b9269083]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4dae) [0x5579ed08cdae]
+
+[END_BACKTRACE]
+
+[FILE]: src/core/pack/task/ResfileReader.cc
+[LINE]: 1577
+[START_MESSAGE]
+On line 3, the pose does not have residue with chain=X, PDBnum=13.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2021.16+release.8ee4f02
+[COMMIT_DATE]: 2021-04-20T20:57:38.289184
+[APPLICATION]: /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease
+[MODE]: Release
+[EXTRAS]: mpi (OpenMPI 4.0.3) 
+[OS]: GNU/Linux
+[COMPILER]: GCC version "9.4.0"
+[STDLIB]: libstdc++ version 20210601
+[START_OPTIONS]
+ -in:file:s="pgmB_relaxed.pdb D-Allulose.pdb" -in:file:extra_res_fa=D-Allulose.params -out:nstruct=10 -out:file:scorefile=result_pgmBmut-DA.sc -parser:protocol=pgmBmut-DA_docking.xml -packing:linmem_ig=10 -packing:ex1 -packing:ex2 -mistakes:restore_pre_talaris_2013_behavior
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(backtrace_string[abi:cxx11](int)+0x5a) [0x7fd0b981153a]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x103) [0x7fd0b984f603]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::onError(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0xba) [0x7fd0b484deca]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::locate_resid(core::pose::Pose const&, char, unsigned long, char, unsigned long) const+0x1c8) [0x7fd0b4852148]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::parse_body_line(core::pose::Pose const&, utility::vector1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::shared_ptr<core::pack::task::ResfileCommand>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<core::pack::task::ResfileCommand> > > > const&, unsigned long, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&)+0x5f9) [0x7fd0b4852a19]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::ResfileContents(core::pose::Pose const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::istream&)+0xc6d) [0x7fd0b48555cd]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, utility::vector1<bool, std::allocator<bool> > const&)+0x205) [0x7fd0b4856945]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7fd0b4857289]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfile::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x209) [0x7fd0b48d80c9]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfileAndObeyLengthEvents::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0xf1b) [0x7fd0b48e3e9b]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.7.so(protocols::enzdes::DetectProteinLigandInterface::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x861) [0x7fd0af36d591]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::modify_task(core::pose::Pose const&, std::shared_ptr<core::pack::task::PackerTask>) const+0x71) [0x7fd0b48634c1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::create_task_and_apply_taskoperations(core::pose::Pose const&, unsigned long) const+0x211) [0x7fd0b4863e01]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::setup(core::pose::Pose&)+0x60) [0x7fd0b63ffe50]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::apply(core::pose::Pose&)+0x3f) [0x7fd0b64043af]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_mover(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&)+0x268) [0x7fd0bab1e4e8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_step(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&, bool)+0x21) [0x7fd0bab1e9d1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::sequence_protocol(core::pose::Pose&, __gnu_cxx::__normal_iterator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const*, std::vector<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep, std::allocator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep> > >)+0x40) [0x7fd0bab1f0c0]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply(core::pose::Pose&)+0x1fe) [0x7fd0bab233fe]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::run_one_job(std::shared_ptr<protocols::moves::Mover>&, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, unsigned long&, unsigned long&, bool)+0x22b4) [0x7fd0ba64e754]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::go_main(std::shared_ptr<protocols::moves::Mover>)+0x238) [0x7fd0ba64fcc8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::FileSystemJobDistributor::go(std::shared_ptr<protocols::moves::Mover>)+0x57) [0x7fd0ba636b97]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4aa6) [0x5579ed08caa6]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x7fd0b9269083]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4dae) [0x5579ed08cdae]
+
+[END_BACKTRACE]
+
+[FILE]: src/core/pack/task/ResfileReader.cc
+[LINE]: 1577
+[START_MESSAGE]
+On line 3, the pose does not have residue with chain=X, PDBnum=13.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2021.16+release.8ee4f02
+[COMMIT_DATE]: 2021-04-20T20:57:38.289184
+[APPLICATION]: /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease
+[MODE]: Release
+[EXTRAS]: mpi (OpenMPI 4.0.3) 
+[OS]: GNU/Linux
+[COMPILER]: GCC version "9.4.0"
+[STDLIB]: libstdc++ version 20210601
+[START_OPTIONS]
+ -in:file:s="pgmB_relaxed.pdb D-Allulose.pdb" -in:file:extra_res_fa=D-Allulose.params -out:nstruct=10 -out:file:scorefile=result_pgmBmut-DA.sc -parser:protocol=pgmBmut-DA_docking.xml -packing:linmem_ig=10 -packing:ex1 -packing:ex2 -mistakes:restore_pre_talaris_2013_behavior
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(backtrace_string[abi:cxx11](int)+0x5a) [0x7fd0b981153a]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x103) [0x7fd0b984f603]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::onError(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0xba) [0x7fd0b484deca]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::locate_resid(core::pose::Pose const&, char, unsigned long, char, unsigned long) const+0x1c8) [0x7fd0b4852148]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::parse_body_line(core::pose::Pose const&, utility::vector1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::shared_ptr<core::pack::task::ResfileCommand>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<core::pack::task::ResfileCommand> > > > const&, unsigned long, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&)+0x5f9) [0x7fd0b4852a19]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::ResfileContents(core::pose::Pose const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::istream&)+0xc6d) [0x7fd0b48555cd]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, utility::vector1<bool, std::allocator<bool> > const&)+0x205) [0x7fd0b4856945]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7fd0b4857289]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfile::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x209) [0x7fd0b48d80c9]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfileAndObeyLengthEvents::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0xf1b) [0x7fd0b48e3e9b]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.7.so(protocols::enzdes::DetectProteinLigandInterface::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x861) [0x7fd0af36d591]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::modify_task(core::pose::Pose const&, std::shared_ptr<core::pack::task::PackerTask>) const+0x71) [0x7fd0b48634c1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::create_task_and_apply_taskoperations(core::pose::Pose const&, unsigned long) const+0x211) [0x7fd0b4863e01]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::setup(core::pose::Pose&)+0x60) [0x7fd0b63ffe50]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::apply(core::pose::Pose&)+0x3f) [0x7fd0b64043af]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_mover(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&)+0x268) [0x7fd0bab1e4e8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_step(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&, bool)+0x21) [0x7fd0bab1e9d1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::sequence_protocol(core::pose::Pose&, __gnu_cxx::__normal_iterator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const*, std::vector<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep, std::allocator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep> > >)+0x40) [0x7fd0bab1f0c0]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply(core::pose::Pose&)+0x1fe) [0x7fd0bab233fe]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::run_one_job(std::shared_ptr<protocols::moves::Mover>&, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, unsigned long&, unsigned long&, bool)+0x22b4) [0x7fd0ba64e754]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::go_main(std::shared_ptr<protocols::moves::Mover>)+0x238) [0x7fd0ba64fcc8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::FileSystemJobDistributor::go(std::shared_ptr<protocols::moves::Mover>)+0x57) [0x7fd0ba636b97]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4aa6) [0x5579ed08caa6]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x7fd0b9269083]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4dae) [0x5579ed08cdae]
+
+[END_BACKTRACE]
+
+[FILE]: src/core/pack/task/ResfileReader.cc
+[LINE]: 1577
+[START_MESSAGE]
+On line 3, the pose does not have residue with chain=X, PDBnum=13.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2021.16+release.8ee4f02
+[COMMIT_DATE]: 2021-04-20T20:57:38.289184
+[APPLICATION]: /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease
+[MODE]: Release
+[EXTRAS]: mpi (OpenMPI 4.0.3) 
+[OS]: GNU/Linux
+[COMPILER]: GCC version "9.4.0"
+[STDLIB]: libstdc++ version 20210601
+[START_OPTIONS]
+ -in:file:s="pgmB_relaxed.pdb D-Allulose.pdb" -in:file:extra_res_fa=D-Allulose.params -out:nstruct=10 -out:file:scorefile=result_pgmBmut-DA.sc -parser:protocol=pgmBmut-DA_docking.xml -packing:linmem_ig=10 -packing:ex1 -packing:ex2 -mistakes:restore_pre_talaris_2013_behavior
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(backtrace_string[abi:cxx11](int)+0x5a) [0x7fd0b981153a]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x103) [0x7fd0b984f603]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::onError(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0xba) [0x7fd0b484deca]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::locate_resid(core::pose::Pose const&, char, unsigned long, char, unsigned long) const+0x1c8) [0x7fd0b4852148]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::parse_body_line(core::pose::Pose const&, utility::vector1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::shared_ptr<core::pack::task::ResfileCommand>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<core::pack::task::ResfileCommand> > > > const&, unsigned long, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&)+0x5f9) [0x7fd0b4852a19]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::ResfileContents(core::pose::Pose const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::istream&)+0xc6d) [0x7fd0b48555cd]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, utility::vector1<bool, std::allocator<bool> > const&)+0x205) [0x7fd0b4856945]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7fd0b4857289]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfile::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x209) [0x7fd0b48d80c9]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfileAndObeyLengthEvents::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0xf1b) [0x7fd0b48e3e9b]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.7.so(protocols::enzdes::DetectProteinLigandInterface::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x861) [0x7fd0af36d591]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::modify_task(core::pose::Pose const&, std::shared_ptr<core::pack::task::PackerTask>) const+0x71) [0x7fd0b48634c1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::create_task_and_apply_taskoperations(core::pose::Pose const&, unsigned long) const+0x211) [0x7fd0b4863e01]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::setup(core::pose::Pose&)+0x60) [0x7fd0b63ffe50]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::apply(core::pose::Pose&)+0x3f) [0x7fd0b64043af]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_mover(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&)+0x268) [0x7fd0bab1e4e8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_step(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&, bool)+0x21) [0x7fd0bab1e9d1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::sequence_protocol(core::pose::Pose&, __gnu_cxx::__normal_iterator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const*, std::vector<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep, std::allocator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep> > >)+0x40) [0x7fd0bab1f0c0]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply(core::pose::Pose&)+0x1fe) [0x7fd0bab233fe]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::run_one_job(std::shared_ptr<protocols::moves::Mover>&, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, unsigned long&, unsigned long&, bool)+0x22b4) [0x7fd0ba64e754]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::go_main(std::shared_ptr<protocols::moves::Mover>)+0x238) [0x7fd0ba64fcc8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::FileSystemJobDistributor::go(std::shared_ptr<protocols::moves::Mover>)+0x57) [0x7fd0ba636b97]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4aa6) [0x5579ed08caa6]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x7fd0b9269083]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4dae) [0x5579ed08cdae]
+
+[END_BACKTRACE]
+
+[FILE]: src/core/pack/task/ResfileReader.cc
+[LINE]: 1577
+[START_MESSAGE]
+On line 3, the pose does not have residue with chain=X, PDBnum=13.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2021.16+release.8ee4f02
+[COMMIT_DATE]: 2021-04-20T20:57:38.289184
+[APPLICATION]: /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease
+[MODE]: Release
+[EXTRAS]: mpi (OpenMPI 4.0.3) 
+[OS]: GNU/Linux
+[COMPILER]: GCC version "9.4.0"
+[STDLIB]: libstdc++ version 20210601
+[START_OPTIONS]
+ -in:file:s="pgmB_relaxed.pdb D-Allulose.pdb" -in:file:extra_res_fa=D-Allulose.params -out:nstruct=10 -out:file:scorefile=result_pgmBmut-DA.sc -parser:protocol=pgmBmut-DA_docking.xml -packing:linmem_ig=10 -packing:ex1 -packing:ex2 -mistakes:restore_pre_talaris_2013_behavior
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(backtrace_string[abi:cxx11](int)+0x5a) [0x7fd0b981153a]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x103) [0x7fd0b984f603]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::onError(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0xba) [0x7fd0b484deca]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::locate_resid(core::pose::Pose const&, char, unsigned long, char, unsigned long) const+0x1c8) [0x7fd0b4852148]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::parse_body_line(core::pose::Pose const&, utility::vector1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::shared_ptr<core::pack::task::ResfileCommand>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<core::pack::task::ResfileCommand> > > > const&, unsigned long, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&)+0x5f9) [0x7fd0b4852a19]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::ResfileContents(core::pose::Pose const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::istream&)+0xc6d) [0x7fd0b48555cd]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, utility::vector1<bool, std::allocator<bool> > const&)+0x205) [0x7fd0b4856945]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7fd0b4857289]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfile::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x209) [0x7fd0b48d80c9]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfileAndObeyLengthEvents::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0xf1b) [0x7fd0b48e3e9b]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.7.so(protocols::enzdes::DetectProteinLigandInterface::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x861) [0x7fd0af36d591]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::modify_task(core::pose::Pose const&, std::shared_ptr<core::pack::task::PackerTask>) const+0x71) [0x7fd0b48634c1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::create_task_and_apply_taskoperations(core::pose::Pose const&, unsigned long) const+0x211) [0x7fd0b4863e01]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::setup(core::pose::Pose&)+0x60) [0x7fd0b63ffe50]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::apply(core::pose::Pose&)+0x3f) [0x7fd0b64043af]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_mover(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&)+0x268) [0x7fd0bab1e4e8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_step(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&, bool)+0x21) [0x7fd0bab1e9d1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::sequence_protocol(core::pose::Pose&, __gnu_cxx::__normal_iterator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const*, std::vector<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep, std::allocator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep> > >)+0x40) [0x7fd0bab1f0c0]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply(core::pose::Pose&)+0x1fe) [0x7fd0bab233fe]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::run_one_job(std::shared_ptr<protocols::moves::Mover>&, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, unsigned long&, unsigned long&, bool)+0x22b4) [0x7fd0ba64e754]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::go_main(std::shared_ptr<protocols::moves::Mover>)+0x238) [0x7fd0ba64fcc8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::FileSystemJobDistributor::go(std::shared_ptr<protocols::moves::Mover>)+0x57) [0x7fd0ba636b97]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4aa6) [0x5579ed08caa6]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x7fd0b9269083]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4dae) [0x5579ed08cdae]
+
+[END_BACKTRACE]
+
+[FILE]: src/core/pack/task/ResfileReader.cc
+[LINE]: 1577
+[START_MESSAGE]
+On line 3, the pose does not have residue with chain=X, PDBnum=13.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2021.16+release.8ee4f02
+[COMMIT_DATE]: 2021-04-20T20:57:38.289184
+[APPLICATION]: /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease
+[MODE]: Release
+[EXTRAS]: mpi (OpenMPI 4.0.3) 
+[OS]: GNU/Linux
+[COMPILER]: GCC version "9.4.0"
+[STDLIB]: libstdc++ version 20210601
+[START_OPTIONS]
+ -in:file:s="pgmB_relaxed.pdb D-Allulose.pdb" -in:file:extra_res_fa=D-Allulose.params -out:nstruct=10 -out:file:scorefile=result_pgmBmut-DA.sc -parser:protocol=pgmBmut-DA_docking.xml -packing:linmem_ig=10 -packing:ex1 -packing:ex2 -mistakes:restore_pre_talaris_2013_behavior
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(backtrace_string[abi:cxx11](int)+0x5a) [0x7fd0b981153a]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x103) [0x7fd0b984f603]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::onError(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0xba) [0x7fd0b484deca]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::locate_resid(core::pose::Pose const&, char, unsigned long, char, unsigned long) const+0x1c8) [0x7fd0b4852148]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::parse_body_line(core::pose::Pose const&, utility::vector1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::shared_ptr<core::pack::task::ResfileCommand>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<core::pack::task::ResfileCommand> > > > const&, unsigned long, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&)+0x5f9) [0x7fd0b4852a19]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::ResfileContents(core::pose::Pose const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::istream&)+0xc6d) [0x7fd0b48555cd]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, utility::vector1<bool, std::allocator<bool> > const&)+0x205) [0x7fd0b4856945]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7fd0b4857289]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfile::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x209) [0x7fd0b48d80c9]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfileAndObeyLengthEvents::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0xf1b) [0x7fd0b48e3e9b]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.7.so(protocols::enzdes::DetectProteinLigandInterface::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x861) [0x7fd0af36d591]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::modify_task(core::pose::Pose const&, std::shared_ptr<core::pack::task::PackerTask>) const+0x71) [0x7fd0b48634c1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::create_task_and_apply_taskoperations(core::pose::Pose const&, unsigned long) const+0x211) [0x7fd0b4863e01]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::setup(core::pose::Pose&)+0x60) [0x7fd0b63ffe50]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::apply(core::pose::Pose&)+0x3f) [0x7fd0b64043af]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_mover(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&)+0x268) [0x7fd0bab1e4e8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_step(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&, bool)+0x21) [0x7fd0bab1e9d1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::sequence_protocol(core::pose::Pose&, __gnu_cxx::__normal_iterator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const*, std::vector<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep, std::allocator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep> > >)+0x40) [0x7fd0bab1f0c0]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply(core::pose::Pose&)+0x1fe) [0x7fd0bab233fe]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::run_one_job(std::shared_ptr<protocols::moves::Mover>&, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, unsigned long&, unsigned long&, bool)+0x22b4) [0x7fd0ba64e754]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::go_main(std::shared_ptr<protocols::moves::Mover>)+0x238) [0x7fd0ba64fcc8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::FileSystemJobDistributor::go(std::shared_ptr<protocols::moves::Mover>)+0x57) [0x7fd0ba636b97]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4aa6) [0x5579ed08caa6]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x7fd0b9269083]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4dae) [0x5579ed08cdae]
+
+[END_BACKTRACE]
+
+[FILE]: src/core/pack/task/ResfileReader.cc
+[LINE]: 1577
+[START_MESSAGE]
+On line 3, the pose does not have residue with chain=X, PDBnum=13.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2021.16+release.8ee4f02
+[COMMIT_DATE]: 2021-04-20T20:57:38.289184
+[APPLICATION]: /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease
+[MODE]: Release
+[EXTRAS]: mpi (OpenMPI 4.0.3) 
+[OS]: GNU/Linux
+[COMPILER]: GCC version "9.4.0"
+[STDLIB]: libstdc++ version 20210601
+[START_OPTIONS]
+ -in:file:s="pgmB_relaxed.pdb D-Allulose.pdb" -in:file:extra_res_fa=D-Allulose.params -out:nstruct=10 -out:file:scorefile=result_pgmBmut-DA.sc -parser:protocol=pgmBmut-DA_docking.xml -packing:linmem_ig=10 -packing:ex1 -packing:ex2 -mistakes:restore_pre_talaris_2013_behavior
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(backtrace_string[abi:cxx11](int)+0x5a) [0x7fd0b981153a]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x103) [0x7fd0b984f603]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::onError(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0xba) [0x7fd0b484deca]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::locate_resid(core::pose::Pose const&, char, unsigned long, char, unsigned long) const+0x1c8) [0x7fd0b4852148]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::parse_body_line(core::pose::Pose const&, utility::vector1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::shared_ptr<core::pack::task::ResfileCommand>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<core::pack::task::ResfileCommand> > > > const&, unsigned long, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&)+0x5f9) [0x7fd0b4852a19]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::ResfileContents(core::pose::Pose const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::istream&)+0xc6d) [0x7fd0b48555cd]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, utility::vector1<bool, std::allocator<bool> > const&)+0x205) [0x7fd0b4856945]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7fd0b4857289]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfile::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x209) [0x7fd0b48d80c9]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfileAndObeyLengthEvents::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0xf1b) [0x7fd0b48e3e9b]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.7.so(protocols::enzdes::DetectProteinLigandInterface::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x861) [0x7fd0af36d591]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::modify_task(core::pose::Pose const&, std::shared_ptr<core::pack::task::PackerTask>) const+0x71) [0x7fd0b48634c1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::create_task_and_apply_taskoperations(core::pose::Pose const&, unsigned long) const+0x211) [0x7fd0b4863e01]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::setup(core::pose::Pose&)+0x60) [0x7fd0b63ffe50]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::apply(core::pose::Pose&)+0x3f) [0x7fd0b64043af]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_mover(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&)+0x268) [0x7fd0bab1e4e8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_step(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&, bool)+0x21) [0x7fd0bab1e9d1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::sequence_protocol(core::pose::Pose&, __gnu_cxx::__normal_iterator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const*, std::vector<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep, std::allocator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep> > >)+0x40) [0x7fd0bab1f0c0]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply(core::pose::Pose&)+0x1fe) [0x7fd0bab233fe]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::run_one_job(std::shared_ptr<protocols::moves::Mover>&, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, unsigned long&, unsigned long&, bool)+0x22b4) [0x7fd0ba64e754]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::go_main(std::shared_ptr<protocols::moves::Mover>)+0x238) [0x7fd0ba64fcc8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::FileSystemJobDistributor::go(std::shared_ptr<protocols::moves::Mover>)+0x57) [0x7fd0ba636b97]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4aa6) [0x5579ed08caa6]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x7fd0b9269083]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4dae) [0x5579ed08cdae]
+
+[END_BACKTRACE]
+
+[FILE]: src/core/pack/task/ResfileReader.cc
+[LINE]: 1577
+[START_MESSAGE]
+On line 3, the pose does not have residue with chain=X, PDBnum=13.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2021.16+release.8ee4f02
+[COMMIT_DATE]: 2021-04-20T20:57:38.289184
+[APPLICATION]: /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease
+[MODE]: Release
+[EXTRAS]: mpi (OpenMPI 4.0.3) 
+[OS]: GNU/Linux
+[COMPILER]: GCC version "9.4.0"
+[STDLIB]: libstdc++ version 20210601
+[START_OPTIONS]
+ -in:file:s="pgmB_relaxed.pdb D-Allulose.pdb" -in:file:extra_res_fa=D-Allulose.params -out:nstruct=10 -out:file:scorefile=result_pgmBmut-DA.sc -parser:protocol=pgmBmut-DA_docking.xml -packing:linmem_ig=10 -packing:ex1 -packing:ex2 -mistakes:restore_pre_talaris_2013_behavior
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(backtrace_string[abi:cxx11](int)+0x5a) [0x7fd0b981153a]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x103) [0x7fd0b984f603]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::onError(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0xba) [0x7fd0b484deca]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::locate_resid(core::pose::Pose const&, char, unsigned long, char, unsigned long) const+0x1c8) [0x7fd0b4852148]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::parse_body_line(core::pose::Pose const&, utility::vector1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::shared_ptr<core::pack::task::ResfileCommand>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<core::pack::task::ResfileCommand> > > > const&, unsigned long, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&)+0x5f9) [0x7fd0b4852a19]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::ResfileContents(core::pose::Pose const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::istream&)+0xc6d) [0x7fd0b48555cd]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, utility::vector1<bool, std::allocator<bool> > const&)+0x205) [0x7fd0b4856945]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7fd0b4857289]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfile::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x209) [0x7fd0b48d80c9]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfileAndObeyLengthEvents::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0xf1b) [0x7fd0b48e3e9b]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.7.so(protocols::enzdes::DetectProteinLigandInterface::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x861) [0x7fd0af36d591]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::modify_task(core::pose::Pose const&, std::shared_ptr<core::pack::task::PackerTask>) const+0x71) [0x7fd0b48634c1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::create_task_and_apply_taskoperations(core::pose::Pose const&, unsigned long) const+0x211) [0x7fd0b4863e01]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::setup(core::pose::Pose&)+0x60) [0x7fd0b63ffe50]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::apply(core::pose::Pose&)+0x3f) [0x7fd0b64043af]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_mover(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&)+0x268) [0x7fd0bab1e4e8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_step(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&, bool)+0x21) [0x7fd0bab1e9d1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::sequence_protocol(core::pose::Pose&, __gnu_cxx::__normal_iterator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const*, std::vector<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep, std::allocator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep> > >)+0x40) [0x7fd0bab1f0c0]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply(core::pose::Pose&)+0x1fe) [0x7fd0bab233fe]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::run_one_job(std::shared_ptr<protocols::moves::Mover>&, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, unsigned long&, unsigned long&, bool)+0x22b4) [0x7fd0ba64e754]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::go_main(std::shared_ptr<protocols::moves::Mover>)+0x238) [0x7fd0ba64fcc8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::FileSystemJobDistributor::go(std::shared_ptr<protocols::moves::Mover>)+0x57) [0x7fd0ba636b97]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4aa6) [0x5579ed08caa6]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x7fd0b9269083]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4dae) [0x5579ed08cdae]
+
+[END_BACKTRACE]
+
+[FILE]: src/core/pack/task/ResfileReader.cc
+[LINE]: 1577
+[START_MESSAGE]
+On line 3, the pose does not have residue with chain=X, PDBnum=13.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2021.16+release.8ee4f02
+[COMMIT_DATE]: 2021-04-20T20:57:38.289184
+[APPLICATION]: /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease
+[MODE]: Release
+[EXTRAS]: mpi (OpenMPI 4.0.3) 
+[OS]: GNU/Linux
+[COMPILER]: GCC version "9.4.0"
+[STDLIB]: libstdc++ version 20210601
+[START_OPTIONS]
+ -in:file:s="pgmB_relaxed.pdb D-Allulose.pdb" -in:file:extra_res_fa=D-Allulose.params -out:nstruct=10 -out:file:scorefile=result_pgmBmut-DA.sc -parser:protocol=pgmBmut-DA_docking.xml -packing:linmem_ig=10 -packing:ex1 -packing:ex2 -mistakes:restore_pre_talaris_2013_behavior
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(backtrace_string[abi:cxx11](int)+0x5a) [0x7fd0b981153a]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libutility.so(utility::excn::Exception::Exception(char const*, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x103) [0x7fd0b984f603]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::onError(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >)+0xba) [0x7fd0b484deca]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::locate_resid(core::pose::Pose const&, char, unsigned long, char, unsigned long) const+0x1c8) [0x7fd0b4852148]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::parse_body_line(core::pose::Pose const&, utility::vector1<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::shared_ptr<core::pack::task::ResfileCommand>, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, std::shared_ptr<core::pack::task::ResfileCommand> > > > const&, unsigned long, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&, utility::vector1<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > >, std::allocator<std::__cxx11::list<std::shared_ptr<core::pack::task::ResfileCommand>, std::allocator<std::shared_ptr<core::pack::task::ResfileCommand> > > > >&)+0x5f9) [0x7fd0b4852a19]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::ResfileContents::ResfileContents(core::pose::Pose const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::istream&)+0xc6d) [0x7fd0b48555cd]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, utility::vector1<bool, std::allocator<bool> > const&)+0x205) [0x7fd0b4856945]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::parse_resfile_string(core::pose::Pose const&, core::pack::task::PackerTask&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)+0x89) [0x7fd0b4857289]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfile::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x209) [0x7fd0b48d80c9]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::operation::ReadResfileAndObeyLengthEvents::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0xf1b) [0x7fd0b48e3e9b]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.7.so(protocols::enzdes::DetectProteinLigandInterface::apply(core::pose::Pose const&, core::pack::task::PackerTask&) const+0x861) [0x7fd0af36d591]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::modify_task(core::pose::Pose const&, std::shared_ptr<core::pack::task::PackerTask>) const+0x71) [0x7fd0b48634c1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libcore.5.so(core::pack::task::TaskFactory::create_task_and_apply_taskoperations(core::pose::Pose const&, unsigned long) const+0x211) [0x7fd0b4863e01]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::setup(core::pose::Pose&)+0x60) [0x7fd0b63ffe50]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.3.so(protocols::minimization_packing::PackRotamersMover::apply(core::pose::Pose&)+0x3f) [0x7fd0b64043af]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_mover(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&)+0x268) [0x7fd0bab1e4e8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply_step(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&, bool)+0x21) [0x7fd0bab1e9d1]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::sequence_protocol(core::pose::Pose&, __gnu_cxx::__normal_iterator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const*, std::vector<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep, std::allocator<protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep> > >)+0x40) [0x7fd0bab1f0c0]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::rosetta_scripts::ParsedProtocol::apply(core::pose::Pose&)+0x1fe) [0x7fd0bab233fe]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::run_one_job(std::shared_ptr<protocols::moves::Mover>&, long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, unsigned long&, unsigned long&, bool)+0x22b4) [0x7fd0ba64e754]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::JobDistributor::go_main(std::shared_ptr<protocols::moves::Mover>)+0x238) [0x7fd0ba64fcc8]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/build/src/release/linux/5.15/64/x86/gcc/9/mpi/libprotocols.1.so(protocols::jd2::FileSystemJobDistributor::go(std::shared_ptr<protocols::moves::Mover>)+0x57) [0x7fd0ba636b97]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4aa6) [0x5579ed08caa6]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x7fd0b9269083]
+/mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/rosetta_scripts.mpi.linuxgccrelease(+0x4dae) [0x5579ed08cdae]
+
+[END_BACKTRACE]
+
+[FILE]: src/core/pack/task/ResfileReader.cc
+[LINE]: 1577
+[START_MESSAGE]
+On line 3, the pose does not have residue with chain=X, PDBnum=13.
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
