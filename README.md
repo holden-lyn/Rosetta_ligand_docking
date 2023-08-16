@@ -111,8 +111,7 @@ http://carbon.structbio.vanderbilt.edu/index.php/bclconf
 <p align="center">
   <img  src="RosettaLigand_picture/chimera_dock.png">
 </p>
-
-<***记得插入图片显示：1.Chimera文件导入，modelpanel打开，disactive protein。 2. 放进口袋之后的小分子***>  
+  
   
    
 ### 2.3 运行Rosetta应用 
