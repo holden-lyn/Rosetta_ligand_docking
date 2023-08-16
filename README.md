@@ -204,7 +204,13 @@ start
 在工作文件夹里运行设计： 
 ```
 $ROSETTA3/bin/rosetta_scripts.mpi.linuxgccrelease -ex1 -ex2 -linmem_ig 10 -restore_pre_talaris_2013_behavior -parser:protocol pgmB-DA_docking.xml -extra_res_fa D-Allulose.params -s "pgmB_relaxed.pdb D-Allulose.pdb" -nstruct 10 -out:file:scorefile result_pgmB-DA.sc
-```
+```  
+
+**成功运行后的命令行界面，如果看见符合蛋白质氨基酸数目的“报数”，基本说明已经跑通：**
+<p align="center">
+  <img  src="RosettaLigand_picture/看见氨基酸数目的时候大概率就是跑通了哈哈哈.png">
+</p>
+  
 标注："-nstruct 10" 生成10个对接结构，"-out:file:scorefile result_pgmB-DA.sc" 指定输出的打分文件名为"result_pgmB-DA.sc"。等十个.pdb对接结构文件输出之后，和打分文件.sc一起移动到另一个文件夹"Result"，分别存放输入文件和输出文件会比较整洁。
 
 接下来运行pgmBmut和DA的对接预测，将上述指令中设计文件替换为预先准备好的"pgmBmut-DA_docking.xml"，输出文件名更改为"result_pgmBmut-DA.sc"，运行：  
@@ -218,7 +224,7 @@ $ROSETTA3/bin/rosetta_scripts.mpi.linuxgccrelease -ex1 -ex2 -linmem_ig 10 -resto
 ### 2.4 筛选 （做过之后编辑）
 
 
-通过计算机模拟的对接结构，是比较难直接进行亲和力（Km）的预测的，但是通过RosettaLigand输出评分较高的对接结构仍有意义。本流程的其他适用场合，包括一个较通用的resfile设计，会在文末讨论。  
+通过计算机模拟的对接结构，是比较难直接进行亲和力（Km）的预测的，但是通过RosettaLigand输出评分较高的对接结构仍有意义。本流程的其他适用场合，包括一个较通用的resfile设计，后续会进行讨论。  
 
 
  
