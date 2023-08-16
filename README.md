@@ -116,7 +116,7 @@ start
         <ScoreFunction name="hard_rep" weights="ligandprime.wts"/>
     </SCOREFXNS>
     <TASKOPERATIONS>
-        <DetectProteinLigandInterface name="design_interface" cut1="6.0" cut2="8.0" cut3="10.0" cut4="12.0" design="1" resfile="DEBP.resfile"/>
+        <DetectProteinLigandInterface name="design_interface" cut1="6.0" cut2="8.0" cut3="10.0" cut4="12.0" design="1" resfile="pgmB.resfile"/>
     </TASKOPERATIONS>
     <LIGAND_AREAS>
         <LigandArea name="docking_sidechain" chain="X" cutoff="6.0" add_nbr_radius="true" all_atom_mode="true" minimize_ligand="10"/>
@@ -163,7 +163,20 @@ start
  
 “建议的方案基于使用RosettaScripts框架的RosettaLigand对接。它将优化配体在结合口袋中的位置（low_res_dock），重新设计周围的侧链（design_interface），并在设计的环境中优化相互作用（high_res_dock）。为了避免虚假突变，在每个位置（favor_native）给输入残基一个轻微的能量奖励。” 
 
-将以上的设计保存为.xml格式文件， 此处命名为"pgmB-DA_Docking.xml"。 
+将以上的设计保存为.xml格式文件， 此处命名为"**pgmB-DA_docking.xml**"，注意``resfile="pgmB.resfile"``处要编辑成对应的resfile；计算突变后pgmB与阿洛酮糖结合的设计文件中相同的地方则为``resfile="pgmBmut.resfile"``，设计文件命名为"**pgmbmut-DA_docking.xml**"。
+
+#### 2.3.3 运行设计
+确认所有所需文件都在工作文件夹： 
+- 松弛后的蛋白质pgmB_relaxed.pdb
+- 小分子三件套 D-Allulose.pdb (在图形软件中手动对接过), D-Allulose_conformers.pdb, D-Allulose.params
+- 为野生型和突变体分别设计的残基说明文件 pgmB.resfile, pgmBmut.resfile
+- Rosetta Design 设计文件（.xml格式） pgmB-DA_docking.xml, pgmBmut-DA_docking.xml
+ 
+在工作文件夹里运行设计： 
+```
+$ROSETTA3/bin/rosetta_scripts.mpi.linuxgccrelease -ex1 -ex2 -linmem_ig 10 -restore_pre_talaris_2013_behavior -parser:protocol pgmB-DA_docking.xml -extra_res_fa D-Allulose.params -s "pgmB_relaxed.pdb D-Allulose.pdb" -nstruct 10 -out:file:scorefile result_pgmB-DA.sc
+```
+ 
  
   
 ### 2.4 筛选 （做过之后编辑）
