@@ -176,6 +176,13 @@ start
 ```
 $ROSETTA3/bin/rosetta_scripts.mpi.linuxgccrelease -ex1 -ex2 -linmem_ig 10 -restore_pre_talaris_2013_behavior -parser:protocol pgmB-DA_docking.xml -extra_res_fa D-Allulose.params -s "pgmB_relaxed.pdb D-Allulose.pdb" -nstruct 10 -out:file:scorefile result_pgmB-DA.sc
 ```
+标注："-nstruct 10" 生成10个对接结构，"-out:file:scorefile result_pgmB-DA.sc" 指定输出的打分文件名为"result_pgmB-DA.sc"。等十个.pdb对接结构文件输出之后，和打分文件.sc一起移动到另一个文件夹"Result"，分别存放输入文件和输出文件会比较整洁。
+
+接下来运行pgmBmut和DA的对接预测，将上述指令中设计文件替换为预先准备好的"pgmBmut-DA_docking.xml"，输出文件名更改为"result_pgmBmut-DA.sc"，运行：  
+```
+$ROSETTA3/bin/rosetta_scripts.mpi.linuxgccrelease -ex1 -ex2 -linmem_ig 10 -restore_pre_talaris_2013_behavior -parser:protocol pgmBmut-DA_docking.xml -extra_res_fa D-Allulose.params -s "pgmB_relaxed.pdb D-Allulose.pdb" -nstruct 10 -out:file:scorefile result_pgmBmut-DA.sc
+```
+同样是输出10个结构文件.pdb，一个打分文件.sc，整理之后可以选用打分较为理想的结构在UCSF Chimera或其他能以图像显示.pdb文件的软件中打开进行目视检测，一般打分文件中total_score越小（负值越大），则说明结构能量较低，相对稳定，被看好。根据需要获取输出结构中的信息，或者利用输出结构进行进一步筛选。
  
  
   
