@@ -74,17 +74,17 @@ http://carbon.structbio.vanderbilt.edu/index.php/bclconf
 - D-Allulose_conformers.pdb: 这是帮助params文件指定小分子构象库的文件，包含了之前生成的所有小分子构象。如果需要移动文件，应该和对应的.params文件一同移动。 
 - D-Allulose.params: Rosetta运行RosettaLigand所能读取的文件格式。和构象库文件绑定，运行程序的时候需要和构象库文件处在同一个文件夹下。
 
-输入命令生成params:
+**输入命令生成params:**
 <p align="center">
   <img  src="RosettaLigand_picture/生成params文件.png">
 </p>
+
   
-D-Allulose和它的构象集
+**D-Allulose和它的构象集：**
 <p align="center">
   <img  src="RosettaLigand_picture/DA-DA_conf.png">
 </p>
 
-<***记得插入图片，展示文件生成时候的输入日志，还有结构可视化文件里选定的一个配体构象，以及构象库，帮助理解***>  
   
 #### 2.2.3 用Chimera（或者其他结构可视化软件）将配体移动到蛋白质口袋中 
 “Rosetta要求原子名称与molfile_to_params.py步骤中生成的名称匹配。即使具有正确放置了配体的起始结构，也应该将molfile_to_params.py生成的结构对齐到口袋中，以便原子命名正确。 
@@ -101,7 +101,17 @@ D-Allulose和它的构象集
 - 鼠标中键按住移动：移动模型。 
  
 如果需要模型直接的相对移动，例如蛋白质和小分子之间，需要在顶部的工具栏依次选择："Tools","General Controls","Model Panel"调出窗口，在弹出的窗口中取消勾选蛋白质结构模型的"A"也就是Active，单独移动小分子，再勾选上蛋白质结构的"A"将蛋白质和小分子同时旋转角度。重复这个过程，直到在多个角度上确认小分子已经移动到了想到对接的蛋白质口袋中。
-  
+
+**启动Chimera,分别打开蛋白质和小分子文件之后，调出Model Panel，反选对应蛋白质文件的"A"选项，让蛋白质不动，鼠标操作小分子移动：**  
+<p align="center">
+  <img  src="RosettaLigand_picture/model_panel_disactive.png">
+</p>
+
+**手动放进蛋白质口袋的D-Allulose分子：**  
+<p align="center">
+  <img  src="RosettaLigand_picture/chimera_dock.png">
+</p>
+
 <***记得插入图片显示：1.Chimera文件导入，modelpanel打开，disactive protein。 2. 放进口袋之后的小分子***>  
   
    
