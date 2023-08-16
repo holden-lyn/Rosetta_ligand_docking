@@ -1,7 +1,7 @@
 # Rosetta分子对接流程指引
 
 ## 1. 前言
-Rosetta是一款功能强大的蛋白质设计软件，它在蛋白质突变稳定性预测、分子对接等方面具有稳定的表现。Rosetta功能的调用需要一点命令行操作基础，本使用流程以***知乎：张自信***高质量流程为模板，Rosetta官方文档了解细节，原英文文献指明适用范围与注意事项，进行流程梳理，意图供公司里任何想在服务器上调用RosettaLigand进行分子对接的朋友。 
+Rosetta是一款功能强大的蛋白质设计软件，它在蛋白质突变稳定性预测、分子对接等方面具有稳定的表现。Rosetta功能的调用需要一点命令行操作基础，本使用流程以***知乎：张自信***高质量流程为模板，Rosetta官方文档了解细节，原英文文献指明适用范围与注意事项，进行流程梳理，意图供公司里任何想在服务器上调用RosettaLigand进行分子对接的朋友。  
  
 ## 2. RosettaLigand 的应用 
 ### 运行前准备 
@@ -22,7 +22,7 @@ https://github.com/holden-lyn/Rosetta_ddg_monomer_tutorial/blob/main/README.md
 
 （5）蛋白质(.pdb)和小分子(.sdf)结构文件，此处以 pgmB 蛋白（结构下载地址 ``https://www.uniprot.org/uniprotkb/P77366/entry``）和小分子 D-Allulose (551-68-8) （结构下载地址 ``https://pubchem.ncbi.nlm.nih.gov/compound/90008``）对接为例。 
  
-（6）准备工作文件夹可能会是一个好习惯，用来装运行之后步骤运行RosettaLigand需要准备的一切文件。这个流程生成的文件很多，我不会希望这些文件混在某个文件夹原有的一大堆文件里头的。 
+（6）准备工作文件夹可能会是一个好习惯，用来装运行之后步骤运行RosettaLigand需要准备的一切文件。这个流程生成的文件很多，我不会希望这些文件混在某个文件夹原有的一大堆文件里头的。  
  
  
 ### 2.1 蛋白质文件准备 
@@ -44,7 +44,7 @@ https://github.com/holden-lyn/Rosetta_ddg_monomer_tutorial/blob/main/README.md
 ``` 
 mv AF-P77366-F1-model_v4_0001.pdb pgmB_relaxed.pdb
 ```
-松弛后的蛋白质文件（pgmB_relaxed.pdb）准备就绪 
+松弛后的蛋白质文件（pgmB_relaxed.pdb）准备就绪  
  
 ### 2.2. 配体准备 
 #### 2.2.1 为小分子按照pH值编辑氢原子 
@@ -69,7 +69,7 @@ http://carbon.structbio.vanderbilt.edu/index.php/bclconf
 - D-Allulose_conformers.pdb: 这是帮助params文件指定小分子构象库的文件，包含了之前生成的所有小分子构象。如果需要移动文件，应该和对应的.params文件一同移动。 
 - D-Allulose.params: Rosetta运行RosettaLigand所能读取的文件格式。和构象库文件绑定，运行程序的时候需要和构象库文件处在同一个文件夹下。
 
-<***记得插入图片，展示文件生成时候的输入日志，还有结构可视化文件里选定的一个配体构象，以及构象库，帮助理解***>
+<***记得插入图片，展示文件生成时候的输入日志，还有结构可视化文件里选定的一个配体构象，以及构象库，帮助理解***>  
  
 #### 2.2.3 用Chimera（或者其他结构可视化软件）将配体移动到蛋白质口袋中 
 “Rosetta要求原子名称与molfile_to_params.py步骤中生成的名称匹配。即使具有正确放置了配体的起始结构，也应该将molfile_to_params.py生成的结构对齐到口袋中，以便原子命名正确。 
@@ -87,7 +87,7 @@ http://carbon.structbio.vanderbilt.edu/index.php/bclconf
  
 如果需要模型直接的相对移动，例如蛋白质和小分子之间，需要在顶部的工具栏依次选择："Tools","General Controls","Model Panel"调出窗口，在弹出的窗口中取消勾选蛋白质结构模型的"A"也就是Active，单独移动小分子，再勾选上蛋白质结构的"A"将蛋白质和小分子同时旋转角度。重复这个过程，直到在多个角度上确认小分子已经移动到了想到对接的蛋白质口袋中。
 
-<***记得插入图片显示：1.Chimera文件导入，modelpanel打开，disactive protein。 2. 放进口袋之后的小分子***>
+<***记得插入图片显示：1.Chimera文件导入，modelpanel打开，disactive protein。 2. 放进口袋之后的小分子***>  
 
  
 ### 2.3 运行Rosetta应用 
@@ -108,7 +108,7 @@ start
 ```
 注：resfile文件"start"以上的部分是**标题**，以下的部分是**主体**。标题声明了对所有未在主体中出现的部分要进行何种操作“NATAA”即允许在不改变氨基酸的情况下发生构象变化；主体部分作为特别指定的部分，会被优先确定，即标题和主体对同一残基都指明了操作的情况下，会以主体指定的操作为准。 
 
-两个文件分别命名为"pgmB.resfile"和"pgmBmut.resfile"保存。 
+两个文件分别命名为"pgmB.resfile"和"pgmBmut.resfile"保存。  
   
  
 #### 2.3.2 设计.xml文件（Rosetta脚本，RosettaScript） 
@@ -186,14 +186,16 @@ $ROSETTA3/bin/rosetta_scripts.mpi.linuxgccrelease -ex1 -ex2 -linmem_ig 10 -resto
 ```
 $ROSETTA3/bin/rosetta_scripts.mpi.linuxgccrelease -ex1 -ex2 -linmem_ig 10 -restore_pre_talaris_2013_behavior -parser:protocol pgmBmut-DA_docking.xml -extra_res_fa D-Allulose.params -s "pgmB_relaxed.pdb D-Allulose.pdb" -nstruct 10 -out:file:scorefile result_pgmBmut-DA.sc
 ```
-同样是输出10个结构文件.pdb，一个打分文件.sc，整理之后可以选用打分较为理想的结构在UCSF Chimera或其他能以图像显示.pdb文件的软件中打开进行目视检测，一般打分文件中total_score越小（负值越大），则说明结构能量较低，相对稳定，被看好。根据需要获取输出结构中的信息，或者利用输出结构进行进一步筛选。
+同样是输出10个结构文件.pdb，一个打分文件.sc，整理之后可以选用打分较为理想的结构在UCSF Chimera或其他能以图像显示.pdb文件的软件中打开进行目视检测，一般打分文件中total_score越小（负值越大），则说明结构能量较低，相对稳定，被看好。根据需要获取输出结构中的信息，或者利用输出结构进行进一步筛选。  
  
  
   
 ### 2.4 筛选 （做过之后编辑）
 
 
-通过计算机模拟的对接结构，是比较难直接进行亲和力（Km）的预测的，但是通过RosettaLigand输出评分较高的对接结构仍有意义。本流程的其他适用场合，包括一个较通用的resfile设计，会在文末讨论。 
+通过计算机模拟的对接结构，是比较难直接进行亲和力（Km）的预测的，但是通过RosettaLigand输出评分较高的对接结构仍有意义。本流程的其他适用场合，包括一个较通用的resfile设计，会在文末讨论。  
+
+
  
 ## 3. 参考借鉴，推荐阅读 
 1. zhihu.com 张自信 https://zhuanlan.zhihu.com/p/621751210
