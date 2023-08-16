@@ -74,10 +74,12 @@ http://carbon.structbio.vanderbilt.edu/index.php/bclconf
 - D-Allulose_conformers.pdb: 这是帮助params文件指定小分子构象库的文件，包含了之前生成的所有小分子构象。如果需要移动文件，应该和对应的.params文件一同移动。 
 - D-Allulose.params: Rosetta运行RosettaLigand所能读取的文件格式。和构象库文件绑定，运行程序的时候需要和构象库文件处在同一个文件夹下。
 
+输入命令生成params:
 <p align="center">
   <img  src="RosettaLigand_picture/生成params文件.png">
 </p>
-
+  
+D-Allulose和它的构象集
 <p align="center">
   <img  src="RosettaLigand_picture/DA-DA_conf.png">
 </p>
