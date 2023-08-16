@@ -2,7 +2,8 @@
 
 ## 1. 前言
 Rosetta是一款功能强大的蛋白质设计软件，它在蛋白质突变稳定性预测、分子对接等方面具有稳定的表现。Rosetta功能的调用需要一点命令行操作基础，本使用流程以***知乎：张自信***高质量流程为模板，Rosetta官方文档了解细节，原英文文献指明适用范围与注意事项，进行流程梳理，意图供公司里任何想在服务器上调用RosettaLigand进行分子对接的朋友。  
- 
+  
+  
 ## 2. RosettaLigand 的应用 
 ### 运行前准备 
 （1）服务器账号。运行Rosetta应用需要在Unix操作系统上进行，推荐在集成（clustered）计算机上运行，调用RosettaLigand还是需要一些算力的。如果条件不允许，本地的计算机其实也不是不行。 
@@ -23,8 +24,8 @@ https://github.com/holden-lyn/Rosetta_ddg_monomer_tutorial/blob/main/README.md
 （5）蛋白质(.pdb)和小分子(.sdf)结构文件，此处以 pgmB 蛋白（结构下载地址 ``https://www.uniprot.org/uniprotkb/P77366/entry``）和小分子 D-Allulose (551-68-8) （结构下载地址 ``https://pubchem.ncbi.nlm.nih.gov/compound/90008``）对接为例。 
  
 （6）准备工作文件夹可能会是一个好习惯，用来装运行之后步骤运行RosettaLigand需要准备的一切文件。这个流程生成的文件很多，我不会希望这些文件混在某个文件夹原有的一大堆文件里头的。  
- 
- 
+  
+  
 ### 2.1 蛋白质文件准备 
 创建一个工作文件夹 ``mkdir <workdir>`` 进入``cd <workdir>``  
  
@@ -45,7 +46,7 @@ https://github.com/holden-lyn/Rosetta_ddg_monomer_tutorial/blob/main/README.md
 mv AF-P77366-F1-model_v4_0001.pdb pgmB_relaxed.pdb
 ```
 松弛后的蛋白质文件（pgmB_relaxed.pdb）准备就绪  
- 
+  
 ### 2.2. 配体准备 
 #### 2.2.1 为小分子按照pH值编辑氢原子 
 （1）从pubchem上下载小分子结构文件.sdf，这里使用的是**3D模型**，``https://pubchem.ncbi.nlm.nih.gov/compound/90008``。 
@@ -70,14 +71,14 @@ http://carbon.structbio.vanderbilt.edu/index.php/bclconf
 - D-Allulose.params: Rosetta运行RosettaLigand所能读取的文件格式。和构象库文件绑定，运行程序的时候需要和构象库文件处在同一个文件夹下。
 
 <***记得插入图片，展示文件生成时候的输入日志，还有结构可视化文件里选定的一个配体构象，以及构象库，帮助理解***>  
- 
+  
 #### 2.2.3 用Chimera（或者其他结构可视化软件）将配体移动到蛋白质口袋中 
 “Rosetta要求原子名称与molfile_to_params.py步骤中生成的名称匹配。即使具有正确放置了配体的起始结构，也应该将molfile_to_params.py生成的结构对齐到口袋中，以便原子命名正确。 
  
 在进行蛋白设计时会包含蛋白与配体的多次对接，因此需要先指定配体每个原子的起始坐标，这样配体才能在指定的对接盒子中移动和扭转，与结合口袋发生相互作用。” 
 
-**UCSF Chimera** 是本次教程中使用的，将小分子放进蛋白质口袋的软件。确认蛋白质的口袋位置需要一些先验知识，这次教程中情况相对简单。在https://www.uniprot.org/uniprotkb/P77366/entry 上可以看到蛋白质的活性位点是第11位的氨基酸，在Chimera中打开蛋白质.pdb结构文件，可以在Chimera中“选择Select”这个氨基酸达到高亮它的效果，同时也能发现这个蛋白质的口袋相当明显，活性位点所在的位置也与口袋的位置相吻合。 
-
+**UCSF Chimera** 是本次教程中使用的，将小分子放进蛋白质口袋的软件。确认蛋白质的口袋位置需要一些先验知识，这次教程中情况相对简单。在https://www.uniprot.org/uniprotkb/P77366/entry 上可以看到蛋白质的活性位点是第11位的氨基酸，在Chimera中打开蛋白质.pdb结构文件，可以在Chimera中“选择Select”这个氨基酸达到高亮它的效果，同时也能发现这个蛋白质的口袋相当明显，活性位点所在的位置也与口袋的位置相吻合。  
+  
 #### Chimera 基本操作 
 - 鼠标左键按住拖动：拖动模型结构旋转 
  
@@ -86,10 +87,10 @@ http://carbon.structbio.vanderbilt.edu/index.php/bclconf
 - 鼠标中键按住移动：移动模型。 
  
 如果需要模型直接的相对移动，例如蛋白质和小分子之间，需要在顶部的工具栏依次选择："Tools","General Controls","Model Panel"调出窗口，在弹出的窗口中取消勾选蛋白质结构模型的"A"也就是Active，单独移动小分子，再勾选上蛋白质结构的"A"将蛋白质和小分子同时旋转角度。重复这个过程，直到在多个角度上确认小分子已经移动到了想到对接的蛋白质口袋中。
-
+  
 <***记得插入图片显示：1.Chimera文件导入，modelpanel打开，disactive protein。 2. 放进口袋之后的小分子***>  
-
- 
+  
+   
 ### 2.3 运行Rosetta应用 
 #### 2.3.1 编辑.resfile文件声明残基设计 
 **resfile** 全称Residue Specification file，文件为.resfile格式。 
@@ -167,8 +168,8 @@ start
  
 “建议的方案基于使用RosettaScripts框架的RosettaLigand对接。它将优化配体在结合口袋中的位置（low_res_dock），重新设计周围的侧链（design_interface），并在设计的环境中优化相互作用（high_res_dock）。为了避免虚假突变，在每个位置（favor_native）给输入残基一个轻微的能量奖励。” 
 
-将以上的设计保存为.xml格式文件， 此处命名为"**pgmB-DA_docking.xml**"，注意``resfile="pgmB.resfile"``处要编辑成对应的resfile；计算突变后pgmB与阿洛酮糖结合的设计文件中相同的地方则为``resfile="pgmBmut.resfile"``，设计文件命名为"**pgmbmut-DA_docking.xml**"。
-
+将以上的设计保存为.xml格式文件， 此处命名为"**pgmB-DA_docking.xml**"，注意``resfile="pgmB.resfile"``处要编辑成对应的resfile；计算突变后pgmB与阿洛酮糖结合的设计文件中相同的地方则为``resfile="pgmBmut.resfile"``，设计文件命名为"**pgmbmut-DA_docking.xml**"。  
+  
 #### 2.3.3 运行设计
 确认所有所需文件都在工作文件夹： 
 - 松弛后的蛋白质pgmB_relaxed.pdb
