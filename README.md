@@ -39,12 +39,12 @@ https://github.com/holden-lyn/Rosetta_ddg_monomer_tutorial/blob/main/README.md
 
 ``-relax:coord_constrain_sidechains``。 
  
-```
+```bash
 /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/bin/relax.mpi.linuxgccrelease -ignore_unrecognized_res -ignore_zero_occupancy false -use_input_sc -flip_HNQ -no_optH false -relax:constrain_relax_to_start_coords -relax:coord_constrain_sidechains -relax:ramp_constraints false -s AF-P77366-F1-model_v4.pdb
 ``` 
  
 运行结束之后，获得文件"AF-P77366-F1-model_v4.pdb_0001.pdb"（这里我选用了一个AlphaFold的预测模型），重命名输出结构为"pgmB_relaxed.pdb" 
-``` 
+```bash 
 mv AF-P77366-F1-model_v4_0001.pdb pgmB_relaxed.pdb
 ```
 松弛后的蛋白质文件（pgmB_relaxed.pdb）准备就绪  
@@ -66,7 +66,7 @@ http://carbon.structbio.vanderbilt.edu/index.php/bclconf
 （2）上传加氢之后的.sdf小分子文件，输入需要的构象数量，这里为了加快运行速度，加上对构象数量的需求不高，选择了10个构象。网站上提供了将结果发送到邮箱的选项，可能会需要将"admin@meilerlab.org"加入受信邮箱地址，在原网页上等待结果，通常来说，一分钟左右能够生成结果。 
  
 （3）将BCL生成的结果重命名为D-Allulose_conf_test.sdf，上传到服务器里的工作文件夹，用Rosetta自带的功能转换成.params格式（此处直接引用：params为Rosetta可读取的、用于存储小分子形状及化学性质信息的专有文件格式）。输入命令转换文件： 
-```
+```bash
 /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/scripts/python/public/molfile_to_params.py -n LIG -p D-Allulose --conformers-in-one-file D-Allulose_conf_test.sdf
 ``` 
 “其中，-n 指定在 pdb 和 params 文件中用来表示配体名称的 3 字符缩写，这里命名为 LIG 即配体 ligand 的缩写（需要注意的是，这里不能沿用 GLY 或者其他氨基酸、金属原子的缩写，否则生成的 params 文件会在后续突变结构时，与 Rosetta 自带的氨基酸或部分金属原子的 params 文件发生冲突）；-p 指定生成文件的命名。” （知乎：张自信） 
@@ -205,7 +205,7 @@ start
 - Rosetta Design 设计文件（.xml格式） pgmB-DA_docking.xml, pgmBmut-DA_docking.xml
  
 在工作文件夹里运行设计： 
-```
+```bash
 $ROSETTA3/bin/rosetta_scripts.mpi.linuxgccrelease -ex1 -ex2 -linmem_ig 10 -restore_pre_talaris_2013_behavior -parser:protocol pgmB-DA_docking.xml -extra_res_fa D-Allulose.params -s "pgmB_relaxed.pdb D-Allulose.pdb" -nstruct 10 -out:file:scorefile result_pgmB-DA.sc
 ```  
 
@@ -217,7 +217,7 @@ $ROSETTA3/bin/rosetta_scripts.mpi.linuxgccrelease -ex1 -ex2 -linmem_ig 10 -resto
 标注："-nstruct 10" 生成10个对接结构，"-out:file:scorefile result_pgmB-DA.sc" 指定输出的打分文件名为"result_pgmB-DA.sc"。等十个.pdb对接结构文件输出之后，和打分文件.sc一起移动到另一个文件夹"Result"，分别存放输入文件和输出文件会比较整洁。
 
 接下来运行pgmBmut和DA的对接预测，将上述指令中设计文件替换为预先准备好的"pgmBmut-DA_docking.xml"，输出文件名更改为"result_pgmBmut-DA.sc"，运行：  
-```
+```bash
 $ROSETTA3/bin/rosetta_scripts.mpi.linuxgccrelease -ex1 -ex2 -linmem_ig 10 -restore_pre_talaris_2013_behavior -parser:protocol pgmBmut-DA_docking.xml -extra_res_fa D-Allulose.params -s "pgmB_relaxed.pdb D-Allulose.pdb" -nstruct 10 -out:file:scorefile result_pgmBmut-DA.sc
 ```
 同样是输出10个结构文件.pdb，一个打分文件.sc，整理之后可以选用打分较为理想的结构在UCSF Chimera或其他能以图像显示.pdb文件的软件中打开进行目视检测，一般打分文件中total_score越小（负值越大），则说明结构能量较低，相对稳定，被看好。根据需要获取输出结构中的信息，或者利用输出结构进行进一步筛选。  
