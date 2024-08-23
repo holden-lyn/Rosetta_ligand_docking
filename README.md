@@ -69,7 +69,12 @@ http://carbon.structbio.vanderbilt.edu/index.php/bclconf
 ```bash
 /mnt/4T_sdb/LHL/test/rosetta_src_2021.16.61629_bundle/main/source/scripts/python/public/molfile_to_params.py -n LIG -p D-Allulose --conformers-in-one-file D-Allulose_conf_test.sdf
 ``` 
-“其中，-n 指定在 pdb 和 params 文件中用来表示配体名称的 3 字符缩写，这里命名为 LIG 即配体 ligand 的缩写（需要注意的是，这里不能沿用 GLY 或者其他氨基酸、金属原子的缩写，否则生成的 params 文件会在后续突变结构时，与 Rosetta 自带的氨基酸或部分金属原子的 params 文件发生冲突）；-p 指定生成文件的命名。” （知乎：张自信） 
+“其中，-n 指定在 pdb 和 params 文件中用来表示配体名称的 3 字符缩写，这里命名为 LIG 即配体 ligand 的缩写（需要注意的是，这里不能沿用 GLY 或者其他氨基酸、金属原子的缩写，否则生成的 params 文件会在后续突变结构时，与 Rosetta 自带的氨基酸或部分金属原子的 params 文件发生冲突）；-p 指定生成文件的命名。” （知乎：张自信）  
+
+2024-8-23 我在某次对接中使用了分子量很小的配体，报错显示没有可接受的相邻原子。通过简单指定中心原子为1相邻原子为2，绕过这个报错（目前并不清楚这样做的合理性）：  
+```bash
+<path_to_mofile_to_param.py> -n LIG -p <ligand_name> --conformers-in-one-file <sdf_file_with_conformers>.sdf --root_atom=1 --nbr_atom-2
+```
  
 输入``ls``，可以看到生成了三个文件"D-Allulose", "D-Allulose_conformers.pdb", "D-Allulose.params"，三个文件依次的作用是： 
 - D-Allulose: 标注小分子的对接的位置，所以在之后的步骤需要在模型可视化软件里手动进行对接。 
